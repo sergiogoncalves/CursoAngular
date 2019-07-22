@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, Data } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { ServersService } from '../servers.service';
@@ -19,8 +19,16 @@ export class ServerComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit() {
+    this.route.data
+        .subscribe(
 
-    const id = +this.route.snapshot.params['id'];
+          (data: Data) => {
+            this.server = data['server'];
+          }
+
+        );
+
+/*     const id = +this.route.snapshot.params['id'];
     this.server = this.serversService.getServer(id);
 
 
@@ -30,7 +38,7 @@ export class ServerComponent implements OnInit, OnDestroy {
         this.server = this.serversService.getServer(+params['id']);
 
       }
-    );
+    ); */
   }
 
   ngOnDestroy() {
