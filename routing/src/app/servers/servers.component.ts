@@ -19,7 +19,7 @@ export class ServersComponent implements OnInit {
   }
 
   onReload() {
-    this.router.navigate(['servers'], {relativeTo: this.route}); //a ultima parte do navigate mostra para o link onde exatamente ele está.. ou seja.. mostra o caminho atual
+    this.router.navigate(['servers'], {relativeTo: this.route, queryParamsHandling: 'preserve'}); //a ultima parte do navigate mostra para o link onde exatamente ele está.. ou seja.. mostra o caminho atual
 
   }
 
