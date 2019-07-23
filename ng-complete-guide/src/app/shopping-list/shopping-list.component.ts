@@ -14,6 +14,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
    private igChangeSub: Subscription;
 
 
+
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit() {
@@ -32,6 +33,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.igChangeSub.unsubscribe();
   }
 
+
+
+  onEdit(index: number) {
+    this.shoppingListService.startedEditing.next(index);
+  }
 
 
 
